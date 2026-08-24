@@ -1,4 +1,4 @@
-# Flutter Agent Rules — Codex Adapter
+# Kotlin Agent Rules — Codex Adapter
 
 > Codex (OpenAI) lee este archivo automáticamente como `AGENTS.md`.
 > Las reglas viven en `.agents/`; **no duplicar aquí**.

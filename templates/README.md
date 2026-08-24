@@ -1,6 +1,6 @@
 # Inicializar `overview/`
 
-Copiar contenido de este directorio a `overview/` en raíz del proyecto Flutter (`$boot` / ejecuta `.agents`). Conservar archivos en Git del **proyecto**, no del submódulo `.agents`.
+Copiar contenido de este directorio a `overview/` en raíz del proyecto Kotlin (`$boot` / ejecuta `.agents`). Conservar archivos en Git del **proyecto**, no del submódulo `.agents`.
 
 ```text
 overview/

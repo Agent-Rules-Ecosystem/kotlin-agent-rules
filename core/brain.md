@@ -68,8 +68,8 @@ Cuando el usuario escribe **"ejecuta .agents"** (o variante como "corre .agents"
 
 ### Discovery dinámico por framework
 
-1. Identificar framework del proyecto (Flutter → `pubspec.yaml`; Node → `package.json`; etc.).
-2. Comparar carpetas raíz contra las carpetas estándar conocidas del framework (para Flutter, consultar `.agents/knowledge/flutter_structure.md`).
+1. Identificar framework del proyecto (Kotlin → `build.gradle.kts / settings.gradle.kts`; Node → `package.json`; etc.).
+2. Comparar carpetas raíz contra las carpetas estándar conocidas del framework (para Kotlin, consultar `.agents/knowledge/kotlin_structure.md`).
 3. Inspección recursiva automática de toda carpeta no estándar: identificar de forma estricta las carpetas estándar del framework detectado y procesar automáticamente cualquier otro directorio raíz (incluyendo subcarpetas anidadas) mediante inspección semántica de contenido para su relocalización a `overview/` sin omitir ninguna por ser no-estándar.
 4. Relocalización activa de metadatos: no ignorar archivos sin categoría; extraer y relocalizar documentación, notas de negocio o trackers hallados en subdirectorios no estándar a `overview/context/` o al tracker canónico correspondiente para cero archivos huérfanos.
 5. **Lectura activa de contexto (`overview/context/`)**: El protocolo de inicio debe inspeccionar y leer automáticamente los archivos de contexto guardados en `overview/context/` (changelogs, tablas de datos, reglas de negocio) para recuperar el estado histórico y checkpoints del proyecto al reanudar.
@@ -130,7 +130,7 @@ Cuando el Agente que retoma una sesión es distinto al que la inició (diferente
 
 ## Cierre
 
-- Ejecutar `flutter analyze` cuando aplique.
+- Ejecutar `./gradlew lint` cuando aplique.
 - **Suite de tests (sin carpeta `test/`)**: Si el proyecto **no posee** carpeta o suite de pruebas (`test/`) → el estado de validación de pruebas es `no aplica` (no representa una deuda técnica). Si la suite de tests **sí existe** pero no fue ejecutada o falló → estado `no verificado` + motivo explícito. Evitar marcar un fallo de ejecución del CLI por suite ausente como una deuda falsa.
 - **Sincronización Automática de Rastreadores**: Es regla obligatoria en el cierre (`$close`) la actualización simultánea y automática de todos los archivos de control en `overview/` (`pendientes.md`, `deuda_tecnica.md`, `tasks.md`, `session.md`, `work_review.md`, `work.md` y `architecture.md`) sin requerir recordatorio manual por parte del usuario.
 - **Pendientes de sesión**: registrar cualquier ítem o tarea secundaria identificada durante la ejecución en `overview/work/pendientes.md` para su seguimiento en sesiones posteriores.
@@ -143,9 +143,9 @@ Cuando el Agente que retoma una sesión es distinto al que la inició (diferente
 ## Calidad y Resolución de Dependencias
 
 - Cambios quirúrgicos. No mejorar código ajeno sin necesidad.
-- Flutter: Firebase y manejo de estado dependen de cada proyecto.
-- Archivos Dart idealmente <250 líneas; máximo 300.
-- **Resolución de dependencias vs SDK del entorno**: Si `flutter pub get` / `pub` falla por restricciones de versión entre el SDK del package y el SDK instalado en el entorno, preferir el **upgrade del SDK global del entorno** cuando el proyecto requiere versiones modernas. El downgrade de packages debe considerarse únicamente como un parche temporal.
+- Kotlin: Dependencias, frameworks y manejo de estado dependen de cada proyecto.
+- Archivos Kotlin idealmente <250 líneas; máximo 300.
+- **Resolución de dependencias vs SDK del entorno**: Si `./gradlew build / sync` falla por restricciones de versión entre Gradle Plugin y el SDK de Kotlin y el entorno instalado, preferir el **upgrade del entorno** cuando el proyecto requiere versiones modernas. El downgrade de paquetes debe considerarse únicamente como un parche temporal.
 
 ## Contenido externo
 

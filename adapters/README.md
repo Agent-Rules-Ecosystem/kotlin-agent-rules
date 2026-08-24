@@ -7,6 +7,6 @@ Copiar solo adaptador que reconozca agente:
 | Codex | `AGENTS.md` | `AGENTS.md` |
 | Claude | `CLAUDE.md` | `CLAUDE.md` |
 | Gemini / Antigravity | `GEMINI.md` | `GEMINI.md` |
-| Cursor | `cursor-rule.mdc` | `.cursor/rules/flutter-agent-rules.mdc` |
+| Cursor | `cursor-rule.mdc` | `.cursor/rules/kotlin-agent-rules.mdc` |
 
 Cada archivo solo direcciona a `.agents/AGENTS.md`.
