@@ -26,7 +26,7 @@ Dispara el bootstrap completo. Pasos que el agente debe ejecutar:
 0. Ejecutar `git submodule status` para verificar integridad de submódulos.
 1. Leer `core/path_map.md`, `core/communication.md`, `core/brain.md`, `core/commands.md`.
 2. Verificar si existe `overview/` — si no, crear desde `templates/`.
-3. Cargar archivos de control de `overview/`: `session.md`, `work.md`, `work/tasks.md`, `work/deuda_tecnica.md`, `work/pendientes.md`, `work_review.md`, `architecture.md` y `trackers/progress.md`.
+3. Cargar archivos de control de `overview/`: `session.md`, `work.md`, `work/tasks.md`, `work/deuda_tecnica.md`, `work/pendientes.md`, `work_review.md`, `ARCHITECTURE.md` (o `overview/architecture/`) y `trackers/progress.md`.
 4. Detectar si el `Agente:` en `session.md` difiere del modelo actual → activar handoff si difiere.
 5. Auditoría de líneas: listar archivos Kotlin (`.kt`/`.kts`) >250L; sugerir IDs `deuda` en `overview/work/deuda_tecnica.md`.
 6. Auditar `overview/learning.md` (Protocolo de 3 Vías — ver `core/learning_protocol.md`).
@@ -55,8 +55,18 @@ $work bug: el StateFlow de autenticación no remite eventos al recomponer la pan
 
 ### `$archi`
 
-Protocolo dedicado a actualizar `overview/architecture.md` mediante diagramas Mermaid (`graph LR` / `graph TD`) mapeando la relación entre Composables, ViewModels, UseCases, Repositories, Room DAOs y servicios Retrofit/Ktor.
+Protocolo dedicado exclusivamente a auditar, modularizar y mantener la arquitectura del proyecto conforme al **Agent Architecture Standard (`ARCHITECTURE_STANDARD.md`)**.
 
+El agente debe:
+0. **Detección de archivo plano legado**: Si existe `overview/architecture.md` como archivo único (no carpeta), leerlo íntegramente como fuente de referencia. Usarlo para extraer diagramas, capas y módulos ya documentados antes de generar los subdocumentos. **No eliminarlo** hasta que la migración esté verificada.
+1. Escanear exhaustivamente la estructura completa del proyecto, módulos y rutas.
+2. Mantener `overview/architecture.md` como **Índice Raíz Hub & Spoke** (< 200L): diagrama Mermaid de alto nivel de capas, tabla de capas del sistema e hipervínculos a los subdocumentos en `overview/architecture/`. Si proviene de migración del archivo plano legado, extraer solo el contenido de alto nivel y mover los detalles técnicos a los subdocumentos.
+3. Crear o actualizar los subdocumentos en `overview/architecture/` extrayendo o refinando el contenido del archivo plano legado (si existía):
+   - `overview/architecture/routes_map.md` (Mapa global de enrutamiento: Navigation Compose).
+   - `overview/architecture/core/data_flow.md` (Estado global, StateFlow/SharedFlow, Room/SQLite).
+   - `overview/architecture/core/import_rules.md` (Reglas de importación por nivel de capa).
+   - `overview/architecture/modules/<modulo>.md` (Subdocumento por cada módulo que supere 2 diagramas Mermaid o 5 componentes/pantallas).
+4. Confirmar: `Arquitectura viva actualizada conforme a ARCHITECTURE_STANDARD.md (Índice Raíz overview/architecture.md + Subdocumentos en overview/architecture/).`
 ---
 
 ### `$learn [texto]` y `$learnagnostico [texto]`
