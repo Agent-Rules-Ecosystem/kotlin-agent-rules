@@ -44,7 +44,7 @@ Mostrar el estado actual del proyecto sin modificar ningún archivo.
 
 ### `$work [descripción]`
 
-Registrar una nueva tarea o bug en el sistema de trabajo modular `overview/work/`.
+Registrar una nueva tarea o bug en el sistema de trabajo modular `overview/work/`. Al resolver un ítem proveniente de `overview/work/pendientes.md` o `overview/work/deuda_tecnica.md`, mover físicamente la fila correspondiente a `## ✅ Completados (Historial)` de ese archivo y actualizar `overview/work.md`, retirándola de la tabla activa para no dejar filas resueltas mezcladas en el backlog activo.
 
 Ejemplo de uso:
 ```
@@ -83,5 +83,6 @@ Protocolo de cierre de sesión.
 El agente debe:
 1. Ejecutar `./gradlew lint` o `./gradlew test` si aplica. Suite de tests ausente → `no aplica`. Si la tarea implica build o release → consultar `.agents/knowledge/release_checklist.md`.
 2. Sincronizar simultáneamente todos los archivos de control en `overview/` (`session.md`, `work.md`, `tasks.md`, `pendientes.md`, `deuda_tecnica.md`, `work_review.md` y `architecture.md`).
-3. Registrar `Agente:` con firma propia en `session.md`, actualizar `## Cambios` y `## Reanudar`.
-4. Reportar: `Sesión cerrada con sincronización automática de rastreadores. Próximo: [nodo]. Estado: [verificado/no verificado/no aplica].`
+3. **Traslado obligatorio a Historial de Completados**: Al finalizar la sesión, cualquier ítem resuelto durante el ciclo que provenga de `pendientes.md` o `deuda_tecnica.md` debe trasladarse físicamente a su respectiva tabla `## ✅ Completados (Historial)` (y actualizarse en `work.md`), eliminándolo de la tabla activa para mantener limpio el backlog.
+4. Registrar `Agente:` con firma propia en `session.md`, actualizar `## Cambios` y `## Reanudar`.
+5. Reportar: `Sesión cerrada con sincronización automática de rastreadores. Próximo: [nodo]. Estado: [verificado/no verificado/no aplica].`

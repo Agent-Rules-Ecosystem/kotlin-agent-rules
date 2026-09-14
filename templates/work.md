@@ -36,6 +36,6 @@ Tipos: `tarea`, `bug`, `deuda`. Estados: `pendiente`, `en progreso`, `bloqueado`
 Reglas:
 - Mismo día → actualizar la fila existente de esa fecha (no duplicar).
 - Diferente día → nueva fila con fecha + firma del Agente.
-- Al resolver → retirar inmediatamente de la tabla activa y trasladar a `## ✅ Completados (Historial)` conservando su ID.
+- Al resolver → mover físicamente la fila a `## ✅ Completados (Historial)` conservando su ID, retirándola de la tabla activa.
 - Nunca borrar intentos previos.
 -->
