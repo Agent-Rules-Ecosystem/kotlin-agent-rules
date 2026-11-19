@@ -18,8 +18,8 @@ Lista de verificación obligatoria para compilar, auditar y desplegar versiones 
 - [ ] **Configuración de Gradle (`build.gradle.kts`)**:
   * `versionCode` incrementado correlativamente.
   * `versionName` actualizado según la semántica de la versión (ej. `1.4.2`).
-  * `minifyEnabled = true` en el build type `release` (activar R8 / ProGuard).
-  * `shrinkResources = true` activado para eliminar recursos no utilizados.
+  * `isMinifyEnabled = true` en el build type `release` (activar R8 / ProGuard en Kotlin DSL).
+  * `isShrinkResources = true` activado para eliminar recursos no utilizados.
 - [ ] **Firmado del APK / AAB**:
   * Verificar que `signingConfigs.release` esté configurado con el KeyStore de producción.
   * **NUNCA** commitear contraseñas del KeyStore (`storePassword`, `keyPassword`) en el control de versiones (usar `local.properties` o variables de entorno CI/CD).

@@ -8,15 +8,18 @@
 | Router | `.agents/AGENTS.md` | Obligatoria |
 | Brain | `.agents/core/brain.md` | Obligatoria |
 | Comandos | `.agents/core/commands.md` | Obligatoria |
+| Protocolo Learning | `.agents/core/learning_protocol.md` | `$learn` / Auditoría |
+| Catálogo de Skills | `.agents/skills/README.md` | Bajo demanda |
 | Adaptadores (Codex / Cursor / etc) | `.agents/adapters/` (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `cursor-rule.mdc`, `README.md`) | Al instalar |
 | Estructura Kotlin / Android | `.agents/knowledge/kotlin_structure.md` | Discovery |
 | Estilo Kotlin / Lint | `.agents/knowledge/code_style.md` | Bajo demanda |
 | Referencia Capas Arquitectura | `.agents/knowledge/architecture.md` | Bajo demanda |
 | Release Checklist (Play Store / AAB) | `.agents/knowledge/release_checklist.md` | `$close` / Build |
+| Patrones Transversales | `.agents/knowledge/design_patterns.md` | Bajo demanda |
 | Plantillas `overview/` | `.agents/templates/` | `$boot` / Inicio |
-| Skills específicas del proyecto | `.skills/<skill_name>/SKILL.md` (submódulo del repo huésped) | Bajo demanda — vinculadas via `.agents/skills.json` |
+| Skills específicas del proyecto | `.skill/<skill_name>/SKILL.md` (submódulo del repo huésped) | Bajo demanda — descubrimiento directo en `.skill/*/` |
 
-> **Gobernanza de Skills por Proyecto**: Skills específicas de un proyecto deben gestionarse como submódulo independiente en `.skills/<skill_name>/` (raíz del repo huésped, **fuera** de `.agents/`). Vincular en `.agents/skills.json` con `{ "path": "../.skills/<skill_name>" }`.
+> **Gobernanza de Skills por Proyecto**: Skills específicas de un proyecto deben gestionarse como submódulo independiente en `.skill/<skill_name>/` (raíz del repo huésped, **fuera** de `.agents/`). Descubrimiento directo desde `.skill/<skill_name>/SKILL.md` sin modificar `.agents/` (solo lectura).
 
 > **Repo oficial (`kotlin-agent-rules`)**: Al editar este repositorio directamente, las rutas `.agents/core/…` equivalen a `core/…`, `.agents/templates/` a `templates/`, etc. No existe el prefijo `.agents/` en la raíz de este repo.
 
@@ -31,9 +34,10 @@
 | Deuda Técnica | `overview/work/deuda_tecnica.md` | Inicio/bajo demanda |
 | Protocolo Revisión Work | `overview/work_review.md` | Fin de `$boot` |
 | Aprendizajes | `overview/learning.md` | Al cerrar |
+| Comandos del proyecto | `overview/commands_project.md` | `$boot` |
+| Salud de Skills | `overview/work/skill/` | `$boot` / Auditoría |
 | Arquitectura real (Hub) | `overview/architecture.md` | Inicio / `$archi` / `$close` |
 | Arquitectura modular (Spoke) | `overview/architecture/` | Inicio / `$archi` / `$close` |
-| Tracker Arquitectura | `overview/trackers/architecture.md` | Bajo demanda |
 | Tracker Progreso | `overview/trackers/progress.md` | Inicio/cierre |
 | Historial | `overview/history/` | Al resumir |
 | Contexto de dominio | `overview/context/` | Inicio/bajo demanda |

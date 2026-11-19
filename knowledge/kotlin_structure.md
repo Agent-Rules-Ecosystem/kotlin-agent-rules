@@ -26,7 +26,7 @@ root/
 │       │   │   ├── domain/           # Capa de Dominio (Modelos de Entidad, UseCases, Interfaces Repo)
 │       │   │   │   ├── model/        # Entidades puras de Kotlin (sin dependencias Android)
 │       │   │   │   ├── repository/   # Interfaces de repositorios
-│       │   │   │   └── usecase/      # Kasos de uso / Interactors
+│       │   │   │   └── usecase/      # Casos de uso / Interactors
 │       │   │   └── ui/               # Capa de Presentación (Jetpack Compose)
 │       │   │       ├── components/   # Composables reutilizables de UI
 │       │   │       ├── screens/      # Pantallas principales y sus ViewModels
